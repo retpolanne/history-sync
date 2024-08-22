@@ -1,1 +1,2 @@
 brew "fswatch"
+brew "gpg"

@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+com.retpolanne.historysync.personal.plist
