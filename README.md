@@ -18,3 +18,15 @@ Follow [this guide](https://www.gnupg.org/gph/en/manual/c14.html) to setup GPG.
 ## Recommended usage
 
 If on a Mac, run `install.sh` for this program to be installed as a LaunchAgent.
+
+## Syncing back
+
+**Before installing this tool on a new computer**, recover your history backup first, otherwise it can be overwritten.
+
+``` sh
+# If using zsh
+cp $BACKUP_DIR/.zsh_history.gpg /tmp
+gpg -r $GPG_MAIL --output $HOME/.zsh_history -d /tmp/.zsh_history.gpg
+```
+
+Then install this tool to keep your history synced :)
