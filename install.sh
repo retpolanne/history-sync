@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+uname -s | grep "Darwin" || { echo "We still don't support Linux yet :( feel free to contribute!"; exit 1; }
 test "$GPG_MAIL" || { echo "Please set the GPG_MAIL variable with your GPG email"; exit 1; }
 gpg --list-keys | grep "$GPG_MAIL" || { echo "Please setup GPG with your email"; exit 1; }
 test "$BACKUP_DIR" || { echo "Please set the backup path with the BACKUP_DIR variable"; exit 1; }
