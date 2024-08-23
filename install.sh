@@ -53,5 +53,6 @@ cat <<EOF> $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
   </dict>
 </plist>
 EOF
+launchctl load -w $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
 launchctl unload $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
 launchctl load -w $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
