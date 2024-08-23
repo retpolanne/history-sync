@@ -6,7 +6,7 @@ gpg --list-keys | grep "$GPG_MAIL" || { echo "Please setup GPG with your email";
 test "$BACKUP_DIR" || { echo "Please set the backup path with the BACKUP_DIR variable"; exit 1; }
 
 brew bundle
-cat <<EOF> $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
+cat <<EOF> $HOME/Library/LaunchAgents/com.retpolanne.historysync.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -53,6 +53,7 @@ cat <<EOF> $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
   </dict>
 </plist>
 EOF
-launchctl load -w $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist 2>/dev/null
-launchctl unload $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
-launchctl load -w $HOME/Library/LaunchAgents/com.retpolanne.historysync.personal.plist
+plutil $HOME/Library/LaunchAgents/com.retpolanne.historysync.plist
+launchctl load $HOME/Library/LaunchAgents/com.retpolanne.historysync.plist 2>/dev/null
+launchctl unload $HOME/Library/LaunchAgents/com.retpolanne.historysync.plist
+launchctl load $HOME/Library/LaunchAgents/com.retpolanne.historysync.plist
